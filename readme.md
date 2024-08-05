@@ -8,7 +8,10 @@ Bienvenido a **GoNotes**. Este repositorio está diseñado para documentar mi ex
 │ ├── go-by-example # Fundamentos con ejemplos
 │ │ └── basics # Conceptos básicos como go-mod, GOPATH, goroutines...
 │ └── notes # Notas y documentación adicional
-├── doc-patterns # Patrones de diseño en Go
+├── design-patterns # Patrones de diseño
+│   ├── creational   # Patrones Creacionales
+│   ├── structural   # Patrones Estructurales
+│   └── behavioral   # Patrones Comportamentales
 └── learn_with_examples # Ejemplos prácticos y proyectos en desarrollo
 ```
 El repositorio está organizado en tres secciones principales (por ahora):
@@ -104,4 +107,5 @@ Aquí tienes algunos recursos adicionales de los que voy obteniendo la documenta
 - **Go by Example**: [https://gobyexample.com/](https://gobyexample.com/)
 - **Effective Go**: [https://golang.org/doc/effective_go.html](https://golang.org/doc/effective_go.html)
 - **Go Patterns**: [https://github.com/tmrts/go-patterns](https://github.com/tmrts/go-patterns)
+- **Refactor Guru**: [https://refactoring.guru/](https://refactoring.guru/)
 - **Learn Go with Tests**: [https://quii.gitbook.io/learn-go-with-tests](https://quii.gitbook.io/learn-go-with-tests)
