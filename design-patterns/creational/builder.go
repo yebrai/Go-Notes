@@ -2,50 +2,47 @@ package creational
 
 import "fmt"
 
-// Pizza represents the product that we are building.
-type Pizza struct {
-	Dough   string
-	Sauce   string
-	Topping string
+// Product to be built
+type House struct {
+	Windows string
+	Doors   string
+	Roof    string
 }
 
-// PizzaBuilder helps to create a Pizza step by step.
-type PizzaBuilder struct {
-	dough   string
-	sauce   string
-	topping string
+// Builder interface
+type HouseBuilder interface {
+	SetWindows() HouseBuilder
+	SetDoors() HouseBuilder
+	SetRoof() HouseBuilder
+	Build() House
 }
 
-func (b *PizzaBuilder) SetDough(dough string) *PizzaBuilder {
-	b.dough = dough
+// Concrete builder
+type ConcreteHouseBuilder struct {
+	house House
+}
+
+func (b *ConcreteHouseBuilder) SetWindows() HouseBuilder {
+	b.house.Windows = "Wooden Windows"
 	return b
 }
 
-func (b *PizzaBuilder) SetSauce(sauce string) *PizzaBuilder {
-	b.sauce = sauce
+func (b *ConcreteHouseBuilder) SetDoors() HouseBuilder {
+	b.house.Doors = "Wooden Doors"
 	return b
 }
 
-func (b *PizzaBuilder) SetTopping(topping string) *PizzaBuilder {
-	b.topping = topping
+func (b *ConcreteHouseBuilder) SetRoof() HouseBuilder {
+	b.house.Roof = "Concrete Roof"
 	return b
 }
 
-func (b *PizzaBuilder) Build() Pizza {
-	return Pizza{
-		Dough:   b.dough,
-		Sauce:   b.sauce,
-		Topping: b.topping,
-	}
+func (b *ConcreteHouseBuilder) Build() House {
+	return b.house
 }
 
 func main() {
-	// Use the PizzaBuilder to create a Pizza
-	builder := &PizzaBuilder{}
-	pizza := builder.SetDough("Thin Crust").
-		SetSauce("Tomato").
-		SetTopping("Cheese").
-		Build()
-
-	fmt.Printf("Pizza: %+v\n", pizza)
+	builder := &ConcreteHouseBuilder{}
+	house := builder.SetWindows().SetDoors().SetRoof().Build()
+	fmt.Println(house)
 }
